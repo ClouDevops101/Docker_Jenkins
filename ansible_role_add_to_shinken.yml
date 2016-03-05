@@ -1,0 +1,10 @@
+---
+- hostname: localhost # shinken host
+  tasks:
+    - blockinfile: |
+        dest=/etc/shinken/hosts/{{hosts[groupe[0]][hosntname]}}.conf backup=yes
+            define host{
+            use           linux
+            host_name     "{{hosts[groupe[0]][hosntamne]}}
+            address       {{hosts[groupe[0]][ansible.eth0.ipv4.address]}}
+            }
